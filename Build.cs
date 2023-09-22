@@ -10,9 +10,6 @@ namespace jalgpall
     {
         public Build() { }
 
-        Player player = new Player();
-        Ball ball = new Ball();
-
         public void Draw(int x, int y, string sym)
         {
             Console.SetCursorPosition(x, y);
@@ -30,7 +27,6 @@ namespace jalgpall
                     Console.SetCursorPosition(x, y);
                     Console.Write(sym + " ");
                     x++;
-                    x++;
                 }
 
                 if (dire == 3)
@@ -43,20 +39,12 @@ namespace jalgpall
             }
         }
 
-        public void SetPlayer(int x, int y, string sym)
+        public void SetPlayer(double x, double y, string sym)
         {
-            player.SetPosition(x, y);
-            int a = Convert.ToInt32(player.X);
-            int b = Convert.ToInt32(player.Y);
+            int a = Convert.ToInt32(x);
+            int b = Convert.ToInt32(y);
             Draw(a, b, sym);
         }
 
-        public void SetBall(string sym)
-        {
-            int a = Convert.ToInt32(ball.X);
-            int b = Convert.ToInt32(ball.Y);
-            Console.SetCursorPosition(a, b);
-            Console.Write(sym);
-        }
     }
 }
