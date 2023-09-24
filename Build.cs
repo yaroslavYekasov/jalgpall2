@@ -46,5 +46,18 @@ namespace jalgpall
             Draw(a, b, sym);
         }
 
+        public void RedrawPlayers(List<Player> players)
+        {
+            Console.Clear();
+            foreach (var player in players)
+            {
+                SetPlayer(player.X, player.Y, player.Name);
+            }
+        }
+
+        public void SetBall(double x, double y, string sym)
+        {
+            Draw((int)x, (int)y, sym);
+        }
     }
 }

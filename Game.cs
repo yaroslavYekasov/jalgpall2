@@ -22,11 +22,15 @@ namespace jalgpall
             Stadium = stadium;
         }
 
+        Build build = new Build();
+
         public void Start()
         {
             Ball = new Ball(Stadium.Width / 2, Stadium.Height / 2, this);
             HomeTeam.StartGame(Stadium.Width / 2, Stadium.Height);
             AwayTeam.StartGame(Stadium.Width / 2, Stadium.Height);
+
+            build.SetPlayer(Ball.X, Ball.Y, "⚫");
         }
         private (double, double) GetPositionForAwayTeam(double x, double y)
         {
@@ -60,6 +64,14 @@ namespace jalgpall
             HomeTeam.Move();
             AwayTeam.Move();
             Ball.Move();
+        }
+
+        public List<Player> GetAllPlayers()
+        {
+            List<Player> allPlayers = new List<Player>();
+            allPlayers.AddRange(HomeTeam.Players);
+            allPlayers.AddRange(AwayTeam.Players);
+            return allPlayers;
         }
     }
 }
