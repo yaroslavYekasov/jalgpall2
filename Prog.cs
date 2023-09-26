@@ -9,19 +9,16 @@ namespace jalgpall
 {
     class Prog
     {
-        static void Main(string[] args)   /*(int x, int y, int dire, int times, string sym)*/
+        static void Main(string[] args)   
         {
+            Console.OutputEncoding = Encoding.Unicode; /*(int x, int y, int dire, int times, string sym)*/
+
             Console.Clear();
-            //Console.SetWindowSize(130, 30);
+            Console.SetWindowSize(130, 31);
 
             Stadium field = new Stadium(99, 26);
+            
             Build build = new Build();
-
-            //build.DrawInDirection(0, 0, 2, 130, "*");
-            //build.DrawInDirection(0, 0, 3, 30, "*");
-
-            //build.DrawInDirection(0, 29, 2, 130, "*");
-            //build.DrawInDirection(129, 0, 3, 30, "*");
 
             Stadium s = new Stadium(129, 29);
 
@@ -35,7 +32,7 @@ namespace jalgpall
             t1.AddPlayer(m2);
             t1.AddPlayer(m3);
             t1.AddPlayer(m4);
-            t1.AddPlayer(m5);            
+            t1.AddPlayer(m5);
 
             Team t2 = new Team("Enelo");
             Player e1 = new Player("E1");
@@ -57,8 +54,25 @@ namespace jalgpall
                 jalgpall.Move();
                 build.RedrawPlayers(jalgpall.GetAllPlayers());
                 build.SetBall(jalgpall.Ball.X, jalgpall.Ball.Y, "●");
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(100);
             }
+
+
+
+
+
+
+            //build.DrawInDirection(6, 30 - 10, 2, 8, "■");
+            //build.DrawInDirection(6, 30 - 21, 2, 8, "■");
+            //build.DrawInDirection(5, 30 - 21, 3, 12, "■");
+
+            //build.DrawInDirection(117, 30 - 10, 2, 8, "■");
+            //build.DrawInDirection(117, 30 - 21, 2, 8, "■");
+            //build.DrawInDirection(124, 30 - 21, 3, 12, "■");
+
+
+
+
         }
     }
 }
