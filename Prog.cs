@@ -11,16 +11,16 @@ namespace jalgpall
     {
         static void Main(string[] args)   
         {
-            Console.OutputEncoding = Encoding.Unicode; /*(int x, int y, int dire, int times, string sym)*/
+            Console.OutputEncoding = Encoding.Unicode; 
 
             Console.Clear();
             Console.SetWindowSize(130, 31);
 
-            Stadium field = new Stadium(99, 26);
+            //Stadium field = new Stadium(99, 26);
             
             Build build = new Build();
 
-            Stadium s = new Stadium(129, 29);
+            Stadium s = new Stadium(125, 25);
 
             Team t1 = new Team("Medovuha");
             Player m1 = new Player("M1");
@@ -51,28 +51,13 @@ namespace jalgpall
 
             while (true)
             {
+                Console.Clear();
                 jalgpall.Move();
                 build.RedrawPlayers(jalgpall.GetAllPlayers());
+                build.DrawGates();
                 build.SetBall(jalgpall.Ball.X, jalgpall.Ball.Y, "●");
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(50);
             }
-
-
-
-
-
-
-            //build.DrawInDirection(6, 30 - 10, 2, 8, "■");
-            //build.DrawInDirection(6, 30 - 21, 2, 8, "■");
-            //build.DrawInDirection(5, 30 - 21, 3, 12, "■");
-
-            //build.DrawInDirection(117, 30 - 10, 2, 8, "■");
-            //build.DrawInDirection(117, 30 - 21, 2, 8, "■");
-            //build.DrawInDirection(124, 30 - 21, 3, 12, "■");
-
-
-
-
         }
     }
 }

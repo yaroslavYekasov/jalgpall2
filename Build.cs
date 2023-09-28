@@ -10,20 +10,16 @@ namespace jalgpall
     {
         public Build() { }
 
-        Gates g = new Gates(6, 20, 14, 20);
+        public int result1 = 0;
+        public int result2 = 0;
 
-        public int result = 0; 
+        Gates g1 = new Gates(5, 9, 13, 20);
+        Gates g2 = new Gates(117, 9, 124, 20);
 
         public void Draw(int x, int y, string sym)
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
-        }
-
-        public void DrawResult(int x, int y, string sym, int goals)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym + " " + goals);
         }
 
         public void DrawInDirection(int x, int y, int dire, int times, string sym)
@@ -49,6 +45,12 @@ namespace jalgpall
             }
         }
 
+        public void DrawResult(int x, int y, string sym, int goals1, int goals2)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(sym + " " + goals1 + " " + sym + " " + goals2);
+        }
+
         public void SetPlayer(double x, double y, string sym)
         {
             int a = Convert.ToInt32(x);
@@ -58,22 +60,14 @@ namespace jalgpall
 
         public void RedrawPlayers(List<Player> players)
         {
-            Console.Clear();
-            DrawInDirection(0, 0, 2, 130, "■");
-            DrawInDirection(0, 0, 3, 30, "■");
 
-            DrawInDirection(0, 29, 2, 130, "■");
-            DrawInDirection(129, 0, 3, 30, "■");
+            //DrawInDirection(0, 0, 2, 130, "■");
+            //DrawInDirection(0, 0, 3, 30, "■");
 
-            DrawInDirection(6, 30 - 10, 2, 8, "■");
-            DrawInDirection(6, 30 - 21, 2, 8, "■");
-            DrawInDirection(5, 30 - 21, 3, 12, "■");
+            //DrawInDirection(0, 29, 2, 130, "■");
+            //DrawInDirection(129, 0, 3, 30, "■");
 
-            DrawInDirection(117, 30 - 10, 2, 8, "■");
-            DrawInDirection(117, 30 - 21, 2, 8, "■");
-            DrawInDirection(124, 30 - 21, 3, 12, "■");
-
-            DrawResult(1, 30, "res:", result);
+            //DrawResult(1, 30, "res:", result);
 
             foreach (var player in players)
             {
@@ -82,18 +76,28 @@ namespace jalgpall
         }
 
         public void SetBall(double x, double y, string sym)
-        {
-            DrawInDirection(0, 0, 2, 130, "■");
-            DrawInDirection(0, 0, 3, 30, "■");
-
-            if (g.IsInGates(x, y) == true)
+        {      
+            if (g1.IsInGates((int)x, (int)y) == true)
             {
-                result++;             
+                result1++;
             }
-
-            DrawInDirection(0, 29, 2, 130, "■");
-            DrawInDirection(129, 0, 3, 30, "■");
+            else if (g2.IsInGates((int)x, (int)y) == true)
+            {
+                result2++;
+            }
+            DrawResult(1, 30, "res:", result1, result2);
             Draw((int)x, (int)y, sym);
+        }
+
+        public void DrawGates()
+        {
+            DrawInDirection(6, 30 - 10, 2, 8, "*");
+            DrawInDirection(6, 30 - 21, 2, 8, "*");
+            DrawInDirection(5, 30 - 21, 3, 12, "*");
+
+            DrawInDirection(117, 30 - 10, 2, 8, "*");
+            DrawInDirection(117, 30 - 21, 2, 8, "*");
+            DrawInDirection(124, 30 - 21, 3, 12, "*");
         }
     }
 }

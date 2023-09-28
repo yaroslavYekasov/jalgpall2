@@ -27,8 +27,8 @@ namespace jalgpall
         public void Start()
         {
             Ball = new Ball(Stadium.Width / 2, Stadium.Height / 2, this);
-            HomeTeam.StartGame(Stadium.Width / 2, Stadium.Height);
-            AwayTeam.StartGame(Stadium.Width / 2, Stadium.Height);
+            HomeTeam.StartGame(Stadium.Width, Stadium.Height);
+            AwayTeam.StartGame(Stadium.Width, Stadium.Height);
 
             build.SetPlayer(Ball.X, Ball.Y, "⚫");
         }
