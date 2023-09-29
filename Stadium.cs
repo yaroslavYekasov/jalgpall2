@@ -8,6 +8,8 @@ namespace jalgpall
 {
     public class Stadium
     {
+        public Stadium() { }
+
         public Stadium(int width, int height)
         {
             Width = width;

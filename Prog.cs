@@ -11,6 +11,9 @@ namespace jalgpall
     {
         static void Main(string[] args)   
         {
+            Gates g1 = new Gates(5, 9, 13, 20);
+            Gates g2 = new Gates(117, 9, 124, 20);
+
             Console.OutputEncoding = Encoding.Unicode; 
 
             Console.Clear();
@@ -20,14 +23,14 @@ namespace jalgpall
             
             Build build = new Build();
 
-            Stadium s = new Stadium(125, 25);
+            Stadium s = new Stadium(120, 28);
 
             Team t1 = new Team("Medovuha");
-            Player m1 = new Player("M1");
-            Player m2 = new Player("M2");
-            Player m3 = new Player("M3");
-            Player m4 = new Player("M4");
-            Player m5 = new Player("M5");
+            Player m1 = new Player("◍");
+            Player m2 = new Player("◍");
+            Player m3 = new Player("◍");
+            Player m4 = new Player("◍");
+            Player m5 = new Player("◍");
             t1.AddPlayer(m1);
             t1.AddPlayer(m2);
             t1.AddPlayer(m3);
@@ -35,11 +38,11 @@ namespace jalgpall
             t1.AddPlayer(m5);
 
             Team t2 = new Team("Enelo");
-            Player e1 = new Player("E1");
-            Player e2 = new Player("E2");
-            Player e3 = new Player("E3");
-            Player e4 = new Player("E4");
-            Player e5 = new Player("E5");
+            Player e1 = new Player("◍");
+            Player e2 = new Player("◍");
+            Player e3 = new Player("◍");
+            Player e4 = new Player("◍");
+            Player e5 = new Player("◍");
             t2.AddPlayer(e1);
             t2.AddPlayer(e2);
             t2.AddPlayer(e3);
@@ -56,7 +59,18 @@ namespace jalgpall
                 build.RedrawPlayers(jalgpall.GetAllPlayers());
                 build.DrawGates();
                 build.SetBall(jalgpall.Ball.X, jalgpall.Ball.Y, "●");
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(100);
+                if (g1.IsInGates((int)jalgpall.Ball.X, (int)jalgpall.Ball.Y) == true)
+                {
+                    Console.SetCursorPosition(10, 30);
+                    Console.ReadLine();
+
+                }
+                else if (g2.IsInGates((int)jalgpall.Ball.X, (int)jalgpall.Ball.Y) == true)
+                {
+                    Console.SetCursorPosition(10, 30);
+                    Console.ReadLine();
+                }
             }
         }
     }

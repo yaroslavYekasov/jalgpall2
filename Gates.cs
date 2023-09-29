@@ -26,7 +26,7 @@ namespace jalgpall
 
         public bool IsInGates(int x, int y)
         {
-            if (x > X1 && x < X2 && y > Y1 && y < Y2) return true;
+            if (x >= X1 && x <= X2 && y >= Y1 && y <= Y2) return true;
             else return false;
         }
     }
